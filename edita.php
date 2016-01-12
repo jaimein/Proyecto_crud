@@ -15,6 +15,20 @@ and open the template in the editor.
         // isset() es una función PHP usado para verificar si una variable tiene valor o no
         $id = isset($_GET['id']) ? $_GET['id'] : die('ERROR: Registro no encontrado.');
         include 'conexion.php';
+            if ($_POST) {
+            // escribir en la tabla cliente
+            $query = "UPDATE clientes "
+                    . "SET nif=?, nombre=?, apellido1=?, apellido2=?, "
+                    . "email=?, telefono=?, usuario=?, password=? "
+                    . "WHERE id = ?";
+            $stmt = $conexion->prepare($query);
+            $stmt->bind_param('ssssssssi', $_POST['nif'], $_POST['nombre'], $_POST['apellido1'], $_POST['apellido2'], $_POST['email'], $_POST['telefono'], $_POST['usuario'], $_POST['password'], $id);
+            if ($stmt->execute()) {
+                    echo "Registro actualizado";
+                } else {
+                    echo 'Error al actualizar.';
+                }
+            }           
         // leer el registro de la tabla
         $query = "SELECT nif, nombre, apellido1, apellido2, email, telefono, usuario, password "
         . "FROM clientes  "
