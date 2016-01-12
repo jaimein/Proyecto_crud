@@ -11,9 +11,24 @@ and open the template in the editor.
     </head>
     <body>
         <h1>Listado de Clientes</h1>
+        <script type="text/JavaScript">
+            function borra_cliente(id) {
+                var answer = confirm('¿Estás seguro que deseas borrar el cliente?');
+            if (answer) {
+                // si el usuario hace click en ok, 
+                // se ejecutar borrar.php
+                window.location = 'borra.php?id=' + id;
+                }
+            }
+        </script> 
         <?php
             // incluir la conexión a la base de datos
             include 'conexion.php';
+            $action = isset($_GET['action']) ? $_GET['action'] : "";
+            // si viene de borra.php
+            if ($action == 'deleted') {
+                echo "<div>El registro cliente ha sido borrado.</div>";
+            }
             // Elegir los datos que deseamos recuperar de la tabla
             $query = "SELECT id, nif, nombre, apellido1, apellido2, email, telefono, usuario  "
                 . "FROM clientes "
