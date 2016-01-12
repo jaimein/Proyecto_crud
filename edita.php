@@ -16,11 +16,16 @@ and open the template in the editor.
         $id = isset($_GET['id']) ? $_GET['id'] : die('ERROR: Registro no encontrado.');
         include 'conexion.php';
             if ($_POST) {
+                //proteger ante injeccion
+                //$nif=mysqli_real_escape_string($_POST['nif']);
+                //$nombre=  mysqli_real_escape_string($_POST['nombre']);
+                //No los descomentamos porque tendria que modificar toda la consulta y las variables
             // escribir en la tabla cliente
             $query = "UPDATE clientes "
                     . "SET nif=?, nombre=?, apellido1=?, apellido2=?, "
                     . "email=?, telefono=?, usuario=?, password=? "
                     . "WHERE id = ?";
+            //El prepare trata las consultas para que no haya injeccion de codigo ??
             $stmt = $conexion->prepare($query);
             $stmt->bind_param('ssssssssi', $_POST['nif'], $_POST['nombre'], $_POST['apellido1'], $_POST['apellido2'], $_POST['email'], $_POST['telefono'], $_POST['usuario'], $_POST['password'], $id);
             if ($stmt->execute()) {
