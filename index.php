@@ -33,6 +33,14 @@ and open the template in the editor.
             <div id="content">
                 <?php
                 // put your code here 
+                $default = 'lista'; //nuestra página por defecto.
+                $accion = isset($_GET['accion']) ? $_GET['accion'] : $default; //obtenemos la página que queremos mostrar.
+                $accion = basename($accion); //nos quedamos con el nombre.
+                if (!file_exists($accion . '.php')) { //comprobamos que el fichero exista
+                    $accion = $default; //si no existe mostramos la página por defecto
+                    //NOTA: Podíamos mostrar la página 404
+                }
+                include( $accion . '.php'); //y ahora mostramos la pagina llamada
                 ?>
             </div>
             <div id="footer">

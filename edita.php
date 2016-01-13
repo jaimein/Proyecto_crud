@@ -48,7 +48,7 @@ and open the template in the editor.
             $stmt->fetch();
         }   
         ?>
-        <form action='edita.php?id=<?php echo htmlspecialchars($id); ?>' method='post' border='0'>
+        <form action='index.php?accionid=<?php echo htmlspecialchars($id); ?>' method='post' border='0'>
             <table>
                 <tr>
                     <td>NIF:</td>

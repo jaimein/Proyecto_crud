@@ -38,7 +38,7 @@ and open the template in the editor.
         }
         ?>
         <h1>Alta Cliente</h1>
-        <form action='altas.php' method='post'>
+        <form action='index.php?accion=altas' method='post'>
             <table border='0'>
                 <tr>
                     <td>NIF</td>
