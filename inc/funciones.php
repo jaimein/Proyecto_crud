@@ -23,5 +23,3 @@ function sec_session_start() {
     session_regenerate_id(true);  // Actualiza el id de sesión actual con uno generado más reciente  
     //Ayuda a evitar ataques de fijación de sesión
 }
-                                //Ayuda a evitar ataques de fijación de sesión
-}
