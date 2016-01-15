@@ -4,3 +4,7 @@ $host="";
 $db_name="";
 $username="";
 $password="";
+
+$intentos_login = 5;
+$tiempo_fuerzabruta = 2; //horas
+$secure = false; //por defecto no obligar a https
