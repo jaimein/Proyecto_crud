@@ -79,7 +79,7 @@ and open the template in the editor.
                 <tr>
                     <td></td>
                     <td>
-                       <input type="submit" name="save" value="Save" />
+                        <input type="button" name="save" value="Save" onclick="fromhash(this.form, this.form.password);" />
                        <a href="./index.php">Volver al inicio</a>
                    </td>
                </tr>

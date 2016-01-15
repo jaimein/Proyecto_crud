@@ -85,7 +85,7 @@ and open the template in the editor.
                 <tr>
                     <td></td>
                     <td>
-                        <input type='submit' value='Guardar' />
+                        <input type='button' value='Guardar' onclick="formhash(this.form, this.form.password);"/>
                         <a href='index.php'>Volver a Inicio</a>
                     </td>
                 </tr>

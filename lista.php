@@ -22,8 +22,6 @@ and open the template in the editor.
             }
         </script> 
         <?php
-            // incluir la conexión a la base de datos
-            include 'conexion.php';
             $action = isset($_GET['action']) ? $_GET['action'] : "";
             // si viene de borra.php
             if ($action == 'deleted') {
